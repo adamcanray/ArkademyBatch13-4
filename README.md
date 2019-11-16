@@ -14,3 +14,6 @@ pada 2.js terdapat sebuah function bernama **validationForm** yang menerima dua 
 ### Soal 3(3.js)
 pada 3.js terdapat sebuah function bernama **cek_kata** yang menerima sebuah parameter yaitu: **string(String)**. function ini akan mengecek apakah benar yang diterima parameter itu adalah **String**. function ini akan mengembalikan ada berapa kata **String** yang terdapat pada suatu kalimat(misal: **3/4**).
 
+### Soal 4(4.js)
+pada 4.js terdapat sebuah function bernama **findPair** yang menerima sebuah parameter yaitu: **Array**. function ini akan mengecek apakah benar yang diterima parameter itu adalah **Array**. function ini akan mengembalikan ada berapa ada berapa pasangan bilangan yang ditemukan dalam **Array**.
+
