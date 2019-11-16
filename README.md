@@ -17,3 +17,6 @@ pada 3.js terdapat sebuah function bernama **cek_kata** yang menerima sebuah par
 ### Soal 4(4.js)
 pada 4.js terdapat sebuah function bernama **findPair** yang menerima sebuah parameter yaitu: **Array**. function ini akan mengecek apakah benar yang diterima parameter itu adalah **Array**. function ini akan mengembalikan ada berapa ada berapa pasangan bilangan yang ditemukan dalam **Array**.
 
+### Soal 5(5.js)
+pada 5.js terdapat sebuah function yang menerima sebuah parameter berupa **number(Int)**. function ini akan mengecek jika yang diterima oleh parameter itu bukan number. function ini akan membuat sebuah segitiga rata kanan pada konsole dan parameter yang diterima oleh function adlaah banyak **baris** dari segitiga tersebut.
+
