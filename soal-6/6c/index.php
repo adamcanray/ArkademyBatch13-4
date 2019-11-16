@@ -156,8 +156,20 @@ $data_category = query("SELECT category.id as category_id, category.name as cate
                 </select>
             </div>
             <div class="form-group">
-                <input name="product" class="form-control form-control-lg placeholder no-border border-bot" type="text" placeholder="Product .." value="">
+                <div class="select-side" id="click-me">
+                    <!-- <label for="sel1"> -->
+                        <!-- <img src="assets/img/downwards-arrow-key.png" alt="arrow" width="30"> -->
+                    <!-- </label> -->
+                </div>
+                <select name="product" class="form-control form-control-lg placeholder appearance-none no-border border-bot" id="sel1">
+                    <?php foreach( $data as $row ): ?>
+                        <option value="<?= $row['product']; ?>"><?= $row['product']; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
+            <!-- <div class="form-group">
+                <input name="product" class="form-control form-control-lg placeholder no-border border-bot" type="text" placeholder="Product .." value="">
+            </div> -->
             <div class="form-group">
                 <div class="select-side"></div>
                 <select name="category" class="form-control form-control-lg placeholder appearance-none no-border border-bot" id="sel2">
@@ -209,7 +221,7 @@ if(isset($_POST['btn-edit'])){
         // berhasil
         echo "
             <script>
-                alert('data berhasil diubah');
+                // alert('data berhasil diubah');
                 document.location.href = 'index.php';
                 </script>
                 ";
@@ -217,7 +229,7 @@ if(isset($_POST['btn-edit'])){
                 // gagal
             echo "
             <script>
-                alert('data gagal diubah');
+                // alert('data gagal diubah');
             document.location.href = 'index.php';
             </script>
             ";
@@ -233,7 +245,7 @@ if(isset($_POST['btn-edit'])){
     <div class="modal-header no-border">
         <!-- <div class="row"> -->
             <div class="col-md pl-4 pt-3" style="background:;">
-                <h5 class="modal-title" id="exampleModalCenterTitle">EDIT DATA</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">EDIT</h5>
             </div>
             <div class="col-md pr-2" style="background:;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.location.href = 'index.php';">
@@ -253,28 +265,39 @@ if(isset($_POST['btn-edit'])){
                     <!-- <img src="assets/img/downwards-arrow-key.png" alt="arrow" width="30"> -->
                 <!-- </label> -->
             </div>
-            <select disabled name="cashier" class="form-control form-control-lg placeholder appearance-none no-border border-bot" id="sel1">
-                <?php foreach( $data as $row ): ?>
+            <select name="cashier" class="form-control form-control-lg placeholder appearance-none no-border border-bot" id="sel1">
+                <?php foreach( $data_cashier as $row ): ?>
                     <!-- hanya menampilkan data cashier yang sesuai -->
-                    <?php if( $row['product_id'] === $id ){ ?>
-                        <option selected value="<?= $row['cashier_id']; ?>"><?= $row['cashier']; ?></option>
+                    <?php if( $row['cashier_id'] === $id ){ ?>
+                        <option selected value="<?= $row['cashier_id']; ?>"><?= $row['cashier_name']; ?></option>
+                    <?php } else{ ?>
+                        <option value="<?= $row['cashier_id']; ?>"><?= $row['cashier_name']; ?></option>
                     <?php } ?>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="form-group">
-            <?php foreach( $data as $row ): ?>
-            <?php if( $row['product_id'] === $id ): ?>
-                <input name="product" class="form-control form-control-lg placeholder no-border border-bot" type="text" placeholder="Product .." value="<?= $row['product']; ?>">
-            <?php endif; ?>
-            <?php endforeach; ?>
+            <input type="hidden" value="<?= $id; ?>" name="id_product">
+            <div class="select-side" id="click-me"></div>
+            <select name="product" class="form-control form-control-lg placeholder appearance-none no-border border-bot" id="sel1">
+                <?php foreach( $data as $row ): ?>
+                    <!-- hanya menampilkan data cashier yang sesuai -->
+                    <?php if( $row['product_id'] === $id ){ ?>
+                        <option selected value="<?= $row['product']; ?>"><?= $row['product']; ?></option>
+                    <?php } else{ ?>
+                        <option value="<?= $row['product']; ?>"><?= $row['product']; ?></option>
+                    <?php } ?>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="form-group">
             <div class="select-side"></div>
-            <select disabled name="category" class="form-control form-control-lg placeholder appearance-none no-border border-bot" id="sel2">
-                <?php foreach( $data as $row ): ?>
-                    <?php if( $row['product_id'] === $id ){ ?>
-                        <option selected value="<?= $row['category_id']; ?>"><?= $row['category']; ?></option>
+            <select name="category" class="form-control form-control-lg placeholder appearance-none no-border border-bot" id="sel2">
+                <?php foreach( $data_category as $row ): ?>
+                    <?php if( $row['category_id'] === $id ){ ?>
+                        <option selected value="<?= $row['category_id']; ?>"><?= $row['category_name']; ?></option>
+                    <?php }else{ ?>
+                        <option value="<?= $row['category_id']; ?>"><?= $row['category_name']; ?></option>
                     <?php } ?>
                 <?php endforeach; ?>
             </select>

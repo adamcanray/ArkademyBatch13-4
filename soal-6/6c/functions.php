@@ -1,6 +1,6 @@
 <?php
 // koneksi ke database
-$konek = mysqli_connect('localhost', 'root', '', 'arkademy_batch_13_2');
+$konek = mysqli_connect('localhost', 'root', '', 'arkademy_batch_13_4');
 
 // fungsi query
 function query($query)
